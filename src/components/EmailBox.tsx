@@ -40,11 +40,11 @@ const EditButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
     <button 
       onClick={onClick} 
-      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+      className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
       title="Change Email"
       aria-label="Change email address"
     >
-      <Edit2 className="w-4 h-4" aria-hidden="true" />
+      <Edit2 className="w-4 h-4 dark:text-gray-300" aria-hidden="true" />
     </button>
   );
 };
@@ -434,7 +434,7 @@ const EmailBox = () => {
               aria-label="Refresh emails"
               disabled={isRefreshing}
             >
-              <RefreshCw className="w-4 h-4" aria-hidden="true" />
+              <RefreshCw className="w-4 h-4 dark:text-gray-300" aria-hidden="true" />
             </button>
             <div className="relative">
               <button 
@@ -443,7 +443,7 @@ const EmailBox = () => {
                 title="Copy email address"
                 aria-label="Copy email address to clipboard"
               >
-                <Copy className="w-4 h-4" aria-hidden="true" />
+                <Copy className="w-4 h-4 dark:text-gray-300 " aria-hidden="true" />
               </button>
               {showCopied && (
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs py-1 px-2 rounded shadow-lg animate-fade-in-out">
