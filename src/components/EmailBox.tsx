@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { Mail, RefreshCw, Copy, Edit2, AlertCircle, ChevronDown, Trash2 } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 import { GuerrillaClient } from '../lib/guerrilla';
 
 interface Email {
@@ -59,6 +60,7 @@ const EmailBox = () => {
   const [showCopied, setShowCopied] = useState(false);
   const [selectedDomain, setSelectedDomain] = useState<keyof typeof EMAIL_DOMAINS>('sharklasers');
   const [emailTimestamp, setEmailTimestamp] = useState<number>(0);
+  const [isTrashDisabled, setIsTrashDisabled] = useState(false);
   const refreshTimerRef = useRef<number>();
   const lastCheckRef = useRef<number>(0);
 
@@ -118,19 +120,37 @@ const EmailBox = () => {
 
   const handleCopy = useCallback(() => {
     const displayEmail = getDisplayEmail();
-    navigator.clipboard.writeText(displayEmail).catch(console.error);
-    setShowCopied(true);
-    setTimeout(() => setShowCopied(false), 2000);
+    navigator.clipboard.writeText(displayEmail)
+      .then(() => {
+        toast.success('Email address copied to clipboard', {
+          duration: 2000,
+          position: 'top-right',
+        });
+        setShowCopied(true);
+        setTimeout(() => setShowCopied(false), 2000);
+      })
+      .catch(() => {
+        toast.error('Failed to copy email address', {
+          duration: 3000,
+          position: 'top-right',
+        });
+      });
   }, [getDisplayEmail]);
 
   const handleRefresh = useCallback(() => {
     checkEmails(true);
+    toast.success('Inbox refreshed', {
+      duration: 2000,
+      position: 'top-right',
+    });
   }, [checkEmails]);
 
   const handleNewEmail = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
+      setIsTrashDisabled(true);
+      
       const response = await client.getEmailAddress();
       setEmailAddress(response.email_addr);
       setNewEmailUser(response.email_addr.split('@')[0]);
@@ -138,10 +158,24 @@ const EmailBox = () => {
       setEmails([]);
       setSelectedEmail(null);
       localStorage.removeItem(EMAILS_STORAGE_KEY);
+      
+      toast.success('New email address generated', {
+        duration: 3000,
+        position: 'top-right',
+      });
+      
       checkEmails(false);
+      
+      setTimeout(() => {
+        setIsTrashDisabled(false);
+      }, 5000);
     } catch (error) {
       console.error('Failed to get new email:', error);
       setError('Failed to generate new email address. Please try again.');
+      toast.error('Failed to generate new email address', {
+        duration: 3000,
+        position: 'top-right',
+      });
     } finally {
       setLoading(false);
     }
@@ -166,10 +200,20 @@ const EmailBox = () => {
       setEmailAddress(response.email_addr);
       setIsEditing(false);
       setEmailTimestamp(Date.now());
+      
+      toast.success('Email address updated successfully', {
+        duration: 3000,
+        position: 'top-right',
+      });
+      
       checkEmails(false);
     } catch (error) {
       console.error('Failed to change email:', error);
       setError('Failed to change email address. Please try again.');
+      toast.error('Failed to change email address', {
+        duration: 3000,
+        position: 'top-right',
+      });
     } finally {
       setLoading(false);
     }
@@ -185,10 +229,20 @@ const EmailBox = () => {
       setEmailAddress(response.email_addr);
       setNewEmailUser(username);
       localStorage.setItem(DOMAIN_STORAGE_KEY, domain);
+      
+      toast.success('Domain changed successfully', {
+        duration: 3000,
+        position: 'top-right',
+      });
+      
       checkEmails(false);
     } catch (error) {
       console.error('Failed to change domain:', error);
       setError('Failed to change email domain. Please try again.');
+      toast.error('Failed to change domain', {
+        duration: 3000,
+        position: 'top-right',
+      });
       setSelectedDomain(prevDomain => prevDomain);
     } finally {
       setLoading(false);
@@ -351,9 +405,12 @@ const EmailBox = () => {
             <EditButton onClick={() => setIsEditing(true)} />
             <button
               onClick={handleNewEmail}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-              title="Get new email"
-              aria-label="Get new email address"
+              className={`p-2 hover:bg-gray-100 rounded-full transition-colors ${
+                isTrashDisabled ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              title={isTrashDisabled ? 'Please wait before generating a new email' : 'Get new email'}
+              aria-label={isTrashDisabled ? 'Please wait before generating a new email' : 'Get new email address'}
+              disabled={isTrashDisabled}
             >
               <Trash2 className="w-4 h-4 text-red-500" aria-hidden="true" />
             </button>
@@ -454,7 +511,7 @@ const EmailBox = () => {
           )}
         </div>
 
-        <div className="overflow-y-autor border">
+        <div className="overflow-y-auto border">
           <Suspense fallback={
             <div className="flex items-center justify-center min-h-[400px]">
               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
