@@ -87,7 +87,7 @@ export default function Terms() {
             <p>
               For questions about these terms, please contact us at{' '}
               <a href="mailto:legal@snapmails.xyz" aria-label="Contact legal team via email">
-                legal@snapmails.xyz
+             erolledph@gmail.com
               </a>
               .
             </p>

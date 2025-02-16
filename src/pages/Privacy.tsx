@@ -91,7 +91,7 @@ export default function Privacy() {
             <p>
               If you have any questions about this Privacy Policy, please contact us at{' '}
               <a href="mailto:privacy@snapmails.xyz" aria-label="Contact privacy team via email">
-                privacy@snapmails.xyz
+                erolledph@gmail.com
               </a>
               .
             </p>
