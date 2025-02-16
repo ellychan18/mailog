@@ -49,6 +49,13 @@ const EditButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   );
 };
 
+const LoadingSpinner = () => (
+  <div className="flex flex-col items-center justify-center h-full text-gray-500">
+    <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+    <p className="text-sm text-gray-400">Loading...</p>
+  </div>
+);
+
 const EmailBox = () => {
   const [client] = useState(() => new GuerrillaClient());
   const [emailAddress, setEmailAddress] = useState('');
@@ -62,6 +69,7 @@ const EmailBox = () => {
   const [selectedDomain, setSelectedDomain] = useState<keyof typeof EMAIL_DOMAINS>('sharklasers');
   const [emailTimestamp, setEmailTimestamp] = useState<number>(0);
   const [isTrashDisabled, setIsTrashDisabled] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const refreshTimerRef = useRef<number>();
   const lastCheckRef = useRef<number>(0);
   const previousEmailCountRef = useRef(0);
@@ -73,7 +81,7 @@ const EmailBox = () => {
 
   const checkEmails = useCallback(async (showLoading = false) => {
     try {
-      if (showLoading) setLoading(true);
+      if (showLoading) setIsRefreshing(true);
       setError(null);
       
       const now = Date.now();
@@ -83,49 +91,46 @@ const EmailBox = () => {
       lastCheckRef.current = now;
 
       const response = await client.checkEmail();
-      setEmails(prevEmails => {
-        const emailMap = new Map(prevEmails.map(email => [email.mail_id, email]));
-        response.list.forEach(email => emailMap.set(email.mail_id, email));
-        const newEmails = Array.from(emailMap.values()).sort((a, b) => 
-          Number(b.mail_timestamp) - Number(a.mail_timestamp)
-        );
+      const emailMap = new Map(emails.map(email => [email.mail_id, email]));
+      response.list.forEach(email => emailMap.set(email.mail_id, email));
+      const newEmails = Array.from(emailMap.values()).sort((a, b) => 
+        Number(b.mail_timestamp) - Number(a.mail_timestamp)
+      );
 
-        // Check for new emails and show notification
-        if (newEmails.length > previousEmailCountRef.current) {
-          const newEmailCount = newEmails.length - previousEmailCountRef.current;
-          const latestEmail = newEmails[0];
-          
-          // Update page title
-          document.title = `(${newEmailCount}) New Message! - SnapMails`;
-          
-          // Show toast notification
-          toast.success(
-            `New email from ${latestEmail.mail_from}\n${latestEmail.mail_subject}`, 
-            {
-              duration: 5000,
-              position: 'top-right',
-              icon: '📧'
-            }
-          );
-        }
+      if (newEmails.length > previousEmailCountRef.current) {
+        const newEmailCount = newEmails.length - previousEmailCountRef.current;
+        const latestEmail = newEmails[0];
         
-        previousEmailCountRef.current = newEmails.length;
-        return newEmails;
-      });
+        document.title = `(${newEmailCount}) New Message! - SnapMails`;
+        
+        toast.success(
+          `New email from ${latestEmail.mail_from}\n${latestEmail.mail_subject}`, 
+          {
+            duration: 5000,
+            position: 'top-right',
+            icon: '📧'
+          }
+        );
+      }
+      
+      previousEmailCountRef.current = newEmails.length;
+      setEmails(newEmails);
     } catch (error) {
       console.error('Failed to check emails:', error);
       setError('Failed to check emails. Please try again.');
     } finally {
-      if (showLoading) setLoading(false);
+      if (showLoading) {
+        setIsRefreshing(false);
+        setLoading(false);
+      }
     }
-  }, [client]);
+  }, [client, emails]);
 
   const handleEmailClick = useCallback(async (email: Email) => {
     try {
       setError(null);
       const fullEmail = await client.fetchEmail(email.mail_id);
       setSelectedEmail({ ...email, mail_body: fullEmail.mail_body });
-      // Reset title when email is read
       document.title = ORIGINAL_TITLE;
     } catch (error) {
       console.error('Failed to fetch email:', error);
@@ -133,7 +138,6 @@ const EmailBox = () => {
     }
   }, [client]);
 
-  // Reset title when tab becomes visible
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
@@ -408,8 +412,24 @@ const EmailBox = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="p-4 border-b">
+          <div className="animate-pulse">
+            <div className="h-4 bg-gray-200 rounded w-1/4 mb-4"></div>
+            <div className="h-8 bg-gray-200 rounded w-3/4"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[600px]">
+          <div className="border-r overflow-y-auto">
+            <LoadingSpinner />
+          </div>
+          <div className="overflow-y-auto">
+            <div className="flex flex-col items-center justify-center h-full text-gray-500">
+              <Mail className="w-12 h-12 mb-2" />
+              <p>Select an email to read</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -422,12 +442,12 @@ const EmailBox = () => {
           <div className="flex gap-2 items-center">
             <button 
               onClick={handleRefresh} 
-              className="p-2 hover:bg-gray-100 rounded-full transition-all duration-300 hover:rotate-180" 
+              className={`p-2 hover:bg-gray-100 rounded-full transition-all duration-300 ${isRefreshing ? 'animate-spin' : 'hover:rotate-180'}`}
               title="Refresh emails"
               aria-label="Refresh emails"
-              disabled={loading}
+              disabled={isRefreshing}
             >
-              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} aria-hidden="true" />
+              <RefreshCw className="w-4 h-4" aria-hidden="true" />
             </button>
             <div className="relative">
               <button 
@@ -524,8 +544,10 @@ const EmailBox = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 h-[600px]">
-        <div className="border-r border overflow-y-auto">
-          {emails.length === 0 ? (
+        <div className="border-r overflow-y-auto">
+          {isRefreshing ? (
+            <LoadingSpinner />
+          ) : emails.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-gray-500">
               <Mail className="w-12 h-12 mb-2" />
               <p>No emails yet</p>
@@ -553,12 +575,8 @@ const EmailBox = () => {
           )}
         </div>
 
-        <div className="overflow-y-auto border">
-          <Suspense fallback={
-            <div className="flex items-center justify-center min-h-[400px]">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-            </div>
-          }>
+        <div className="overflow-y-auto">
+          <Suspense fallback={<LoadingSpinner />}>
             {selectedEmail ? (
               <div className="p-4">
                 <div className="mb-4">

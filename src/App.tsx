@@ -24,13 +24,13 @@ import Blog from './pages/Blog/Blog';
 import PWAPrompt from './components/PWAPrompt';
 
 const ComparisonSection = () => (
-  <section className="py-16 bg-gray-50 dark:bg-gray-900">
+  <section className="py-16 dark:bg-gray-900">
     <div className="max-w-7xl mx-auto px-4">
       <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 ">
         Why Choose SnapMails?
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+        <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-md transition-all hover:-translate-y-1">
           <h3 className="text-xl font-bold mb-4">Other Services</h3>
           <ul className="space-y-3">
             <li className="flex items-center text-gray-600 dark:text-gray-300">
@@ -51,8 +51,8 @@ const ComparisonSection = () => (
             </li>
           </ul>
         </div>
-        <div className="bg-blue-600 text-white p-6 rounded-lg shadow-lg transform md:-translate-y-4">
-          <div className="flex items-center justify-between mb-4">
+        <div className="bg-blue-600 text-white p-6 rounded-lg shadow-lg transform md:-translate-y-4 hover:shadow-md transition-all hover:-translate-y-1">
+          <div className="flex items-center justify-between mb-4 ">
             <h3 className="text-xl font-bold">SnapMails</h3>
             <Award className="w-6 h-6" />
           </div>
@@ -75,7 +75,7 @@ const ComparisonSection = () => (
             </li>
           </ul>
         </div>
-        <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
+        <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-md transition-all hover:-translate-y-1">
           <h3 className="text-xl font-bold mb-4">Premium Services</h3>
           <ul className="space-y-3">
             <li className="flex items-center text-gray-600 dark:text-gray-300">
@@ -107,7 +107,7 @@ const TestimonialsSection = () => (
       <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
         What Our Users Say
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {[
           {
             name: 'Sarah Chen',
@@ -136,7 +136,7 @@ const TestimonialsSection = () => (
         ].map((testimonial, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+            className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-md transition-all hover:-translate-y-1"
           >
             <div className="flex items-center mb-4">
               <img
@@ -477,7 +477,7 @@ const App: React.FC = () => {
                   </span>
                 </div>
                 <p className="mt-4 text-sm text-gray-700 dark:text-gray-200">
-                  Secure, disposable email addresses for your privacy needs.
+                 Customizable Temporary disposable email addresses for your privacy needs.
                 </p>
               </div>
               <div>
