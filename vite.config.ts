@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
+import compression from 'vite-plugin-compression';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // Generate static HTML files for each route
 const generateStaticFiles = () => {
@@ -106,6 +108,21 @@ export default defineConfig({
         plugins: []
       }
     }),
+    compression({ algorithm: 'brotli', ext: '.br' }),
+    compression({ algorithm: 'gzip', ext: '.gz' }),
+    ViteImageOptimizer({
+      jpg: {
+        quality: 80,
+        progressive: true,
+      },
+      png: {
+        quality: 80,
+        progressive: true,
+      },
+      webp: {
+        lossless: true,
+      }
+    }),
     {
       name: 'generate-static-files',
       closeBundle() {
@@ -137,7 +154,7 @@ export default defineConfig({
     reportCompressedSize: false,
     chunkSizeWarningLimit: 1000,
     assetsInlineLimit: 4096,
-    sourcemap: process.env.NODE_ENV === 'development',
+    sourcemap: false,
     cssCodeSplit: true,
     modulePreload: {
       polyfill: true
@@ -146,7 +163,7 @@ export default defineConfig({
     cache: true,
     // Optimize dependencies
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react-router-dom', 'lucide-react'],
+      include: ['react', 'react-dom', 'react-router-dom', 'lucide-react', 'react-helmet-async', 'react-hot-toast'],
       exclude: []
     }
   },
@@ -184,6 +201,7 @@ export default defineConfig({
     treeShaking: true,
     minifyIdentifiers: true,
     minifySyntax: true,
-    minifyWhitespace: true
+    minifyWhitespace: true,
+    drop: ['console', 'debugger']
   }
 });
