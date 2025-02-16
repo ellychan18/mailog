@@ -1,5 +1,17 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { Mail, Shield, Clock, Lock, Menu, X, Edit2, Moon, Sun, CheckCircle, Award } from 'lucide-react';
+import {
+  Mail,
+  Shield,
+  Clock,
+  Lock,
+  Menu,
+  X,
+  Edit2,
+  Moon,
+  Sun,
+  CheckCircle,
+  Award,
+} from 'lucide-react';
 import { Link, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import EmailBox from './components/EmailBox';
 import Privacy from './pages/Privacy';
@@ -12,9 +24,11 @@ import Blog from './pages/Blog/Blog';
 import PWAPrompt from './components/PWAPrompt';
 
 const ComparisonSection = () => (
-  <section className="py-16 bg-gray-50 dark:bg-gray-800">
+  <section className="py-16 bg-gray-50 dark:bg-gray-900">
     <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">Why Choose SnapMails?</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 ">
+        Why Choose SnapMails?
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-bold mb-4">Other Services</h3>
@@ -90,29 +104,40 @@ const ComparisonSection = () => (
 const TestimonialsSection = () => (
   <section className="py-16">
     <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
+        What Our Users Say
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           {
-            name: "Sarah Chen",
-            role: "Web Developer",
-            content: "The customization options are amazing! Finally a temp mail service that lets me choose my own address.",
-            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+            name: 'Sarah Chen',
+            role: 'Web Developer',
+            content:
+              'The customization options are amazing! Finally a temp mail service that lets me choose my own address.',
+            image:
+              'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100',
           },
           {
-            name: "Michael Torres",
-            role: "Digital Marketer",
-            content: "Clean interface, fast email delivery, and great privacy features. Exactly what I needed for testing.",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100"
+            name: 'Michael Torres',
+            role: 'Digital Marketer',
+            content:
+              'Clean interface, fast email delivery, and great privacy features. Exactly what I needed for testing.',
+            image:
+              'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100',
           },
           {
-            name: "Emma Wilson",
-            role: "UX Designer",
-            content: "The best temporary email service I've used. The dark mode and mobile support are fantastic.",
-            image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
-          }
+            name: 'Emma Wilson',
+            role: 'UX Designer',
+            content:
+              "The best temporary email service I've used. The dark mode and mobile support are fantastic.",
+            image:
+              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100',
+          },
         ].map((testimonial, index) => (
-          <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <div
+            key={index}
+            className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+          >
             <div className="flex items-center mb-4">
               <img
                 src={testimonial.image}
@@ -121,10 +146,14 @@ const TestimonialsSection = () => (
               />
               <div>
                 <h3 className="font-semibold">{testimonial.name}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {testimonial.role}
+                </p>
               </div>
             </div>
-            <p className="text-gray-600 dark:text-gray-300">{testimonial.content}</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              {testimonial.content}
+            </p>
           </div>
         ))}
       </div>
@@ -146,7 +175,9 @@ const Home = () => {
                 Instant, Secure, and Customizable Temporary Email Service
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-                The only customizable temporary email service. Keep your real inbox clean and secure with instant disposable email addresses for temporary use.
+                The only customizable temporary email service. Keep your real
+                inbox clean and secure with instant disposable email addresses
+                for temporary use.
               </p>
               {/* <div className="inline-block bg-blue-50 dark:bg-blue-900/50 rounded-full px-6 py-2 text-blue-700 dark:text-blue-200 font-medium border border-blue-100 dark:border-blue-800">
                 Customize your email address in your first session, 60mins Cooldown 
@@ -180,28 +211,45 @@ const Home = () => {
 
         <section id="features" className="py-16 relative overflow-hidden">
           <div className="relative">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Why Choose SnapMails?</h2>
+            <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
+              Quick Features
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6 text-blue-500 dark:text-blue-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Instant Access</h3>
-                <p className="text-gray-700 dark:text-gray-200">No registration required. Get a disposable email address instantly and start receiving emails.</p>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+                  Instant Access
+                </h3>
+                <p className="text-gray-700 dark:text-gray-200">
+                  No registration required. Get a disposable email address
+                  instantly and start receiving emails.
+                </p>
               </div>
               <div className="bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-blue-500 dark:text-blue-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Privacy First</h3>
-                <p className="text-gray-700 dark:text-gray-200">Protect your real email from spam, phishing, and unwanted subscriptions with our secure service.</p>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+                  Privacy First
+                </h3>
+                <p className="text-gray-700 dark:text-gray-200">
+                  Protect your real email from spam, phishing, and unwanted
+                  subscriptions with our secure service.
+                </p>
               </div>
               <div className="bg-white/80 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
                   <Edit2 className="w-6 h-6 text-blue-500 dark:text-blue-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Fully Customizable</h3>
-                <p className="text-gray-700 dark:text-gray-200">Unlike other services, we let you customize your email address during your first session.</p>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+                  Fully Customizable
+                </h3>
+                <p className="text-gray-700 dark:text-gray-200">
+                  Unlike other services, we let you customize your email address
+                  during your first session.
+                </p>
               </div>
             </div>
           </div>
@@ -211,7 +259,10 @@ const Home = () => {
   );
 };
 
-class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
   constructor(props: { children: React.ReactNode }) {
     super(props);
     this.state = { hasError: false };
@@ -230,7 +281,9 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
       return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Something went wrong</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Something went wrong
+            </h2>
             <button
               onClick={() => {
                 localStorage.clear();
@@ -305,13 +358,30 @@ const App: React.FC = () => {
             <div className="flex items-center justify-between h-16">
               <Link to="/" className="flex items-center">
                 <Mail className="w-8 h-8 text-blue-500 dark:text-blue-300" />
-                <span className="ml-2 text-xl font-semibold text-gray-900 dark:text-white">SnapMails</span>
+                <span className="ml-2 text-xl font-semibold text-gray-900 dark:text-white">
+                  SnapMails
+                </span>
               </Link>
-              
+
               <nav className="hidden md:flex items-center space-x-6">
-                <Link to="/" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors">Home</Link>
-                <Link to="/features" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors">Features</Link>
-                <Link to="/about" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors">About</Link>
+                <Link
+                  to="/"
+                  className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/features"
+                  className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Features
+                </Link>
+                <Link
+                  to="/about"
+                  className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  About
+                </Link>
                 <button
                   onClick={toggleTheme}
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -337,11 +407,15 @@ const App: React.FC = () => {
                     <Moon className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                   )}
                 </button>
-                <button 
+                <button
                   className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6" />
+                  ) : (
+                    <Menu className="h-6 w-6" />
+                  )}
                 </button>
               </div>
             </div>
@@ -350,22 +424,22 @@ const App: React.FC = () => {
           {isMenuOpen && (
             <div className="md:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <Link 
-                  to="/" 
+                <Link
+                  to="/"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
                 </Link>
-                <Link 
-                  to="/features" 
+                <Link
+                  to="/features"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Features
                 </Link>
-                <Link 
-                  to="/about" 
+                <Link
+                  to="/about"
                   className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -398,33 +472,97 @@ const App: React.FC = () => {
               <div>
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 text-blue-500 dark:text-blue-300" />
-                  <span className="ml-2 text-lg font-semibold text-gray-900 dark:text-white">SnapMails</span>
+                  <span className="ml-2 text-lg font-semibold text-gray-900 dark:text-white">
+                    SnapMails
+                  </span>
                 </div>
                 <p className="mt-4 text-sm text-gray-700 dark:text-gray-200">
                   Secure, disposable email addresses for your privacy needs.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Product</h3>
+                <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">
+                  Product
+                </h3>
                 <ul className="space-y-3 text-sm">
-                  <li><Link to="/features" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">Features</Link></li>
-                  <li><Link to="/about" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">About</Link></li>
-                  <li><Link to="/blog" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">Blog</Link></li>
-                  <li><Link to="/faq" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">FAQ</Link></li>
+                  <li>
+                    <Link
+                      to="/features"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      Features
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/about"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/blog"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/faq"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      FAQ
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Legal</h3>
+                <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">
+                  Legal
+                </h3>
                 <ul className="space-y-3 text-sm">
-                  <li><Link to="/privacy" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">Privacy Policy</Link></li>
-                  <li><Link to="/terms" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">Terms of Service</Link></li>
-                  <li><a href='https://www.guerrillamail.com' className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">API</a></li>
+                  <li>
+                    <Link
+                      to="/privacy"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/terms"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.guerrillamail.com"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      API
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Connect</h3>
+                <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">
+                  Connect
+                </h3>
                 <ul className="space-y-3 text-sm">
-                  <li><a href="mailto:support@snapmails.xyz" className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white">Contact Us</a></li>
+                  <li>
+                    <a
+                      href="mailto:support@snapmails.xyz"
+                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
+                    >
+                      Contact Us
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
