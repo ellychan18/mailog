@@ -20,6 +20,7 @@ const EMAILS_STORAGE_KEY = 'tempmail_emails';
 const DOMAIN_STORAGE_KEY = 'tempmail_domain';
 const EMAIL_TIMESTAMP_KEY = 'tempmail_timestamp';
 const SESSION_STORAGE_KEY = 'tempmail_session';
+const ORIGINAL_TITLE = document.title;
 
 const EMAIL_DOMAINS = {
   sharklasers: '@sharklasers.com',
@@ -63,6 +64,7 @@ const EmailBox = () => {
   const [isTrashDisabled, setIsTrashDisabled] = useState(false);
   const refreshTimerRef = useRef<number>();
   const lastCheckRef = useRef<number>(0);
+  const previousEmailCountRef = useRef(0);
 
   const getDisplayEmail = useCallback(() => {
     const username = emailAddress.split('@')[0];
@@ -84,9 +86,31 @@ const EmailBox = () => {
       setEmails(prevEmails => {
         const emailMap = new Map(prevEmails.map(email => [email.mail_id, email]));
         response.list.forEach(email => emailMap.set(email.mail_id, email));
-        return Array.from(emailMap.values()).sort((a, b) => 
+        const newEmails = Array.from(emailMap.values()).sort((a, b) => 
           Number(b.mail_timestamp) - Number(a.mail_timestamp)
         );
+
+        // Check for new emails and show notification
+        if (newEmails.length > previousEmailCountRef.current) {
+          const newEmailCount = newEmails.length - previousEmailCountRef.current;
+          const latestEmail = newEmails[0];
+          
+          // Update page title
+          document.title = `(${newEmailCount}) New Message! - SnapMails`;
+          
+          // Show toast notification
+          toast.success(
+            `New email from ${latestEmail.mail_from}\n${latestEmail.mail_subject}`, 
+            {
+              duration: 5000,
+              position: 'top-right',
+              icon: '📧'
+            }
+          );
+        }
+        
+        previousEmailCountRef.current = newEmails.length;
+        return newEmails;
       });
     } catch (error) {
       console.error('Failed to check emails:', error);
@@ -95,6 +119,33 @@ const EmailBox = () => {
       if (showLoading) setLoading(false);
     }
   }, [client]);
+
+  const handleEmailClick = useCallback(async (email: Email) => {
+    try {
+      setError(null);
+      const fullEmail = await client.fetchEmail(email.mail_id);
+      setSelectedEmail({ ...email, mail_body: fullEmail.mail_body });
+      // Reset title when email is read
+      document.title = ORIGINAL_TITLE;
+    } catch (error) {
+      console.error('Failed to fetch email:', error);
+      setError('Failed to fetch email content. Please try again.');
+    }
+  }, [client]);
+
+  // Reset title when tab becomes visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        document.title = ORIGINAL_TITLE;
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
 
   const debouncedCheckEmails = useCallback(
     (() => {
@@ -106,17 +157,6 @@ const EmailBox = () => {
     })(),
     [checkEmails]
   );
-
-  const handleEmailClick = useCallback(async (email: Email) => {
-    try {
-      setError(null);
-      const fullEmail = await client.fetchEmail(email.mail_id);
-      setSelectedEmail({ ...email, mail_body: fullEmail.mail_body });
-    } catch (error) {
-      console.error('Failed to fetch email:', error);
-      setError('Failed to fetch email content. Please try again.');
-    }
-  }, [client]);
 
   const handleCopy = useCallback(() => {
     const displayEmail = getDisplayEmail();
@@ -278,7 +318,9 @@ const EmailBox = () => {
     
     if (savedEmails) {
       try {
-        setEmails(JSON.parse(savedEmails));
+        const parsedEmails = JSON.parse(savedEmails);
+        setEmails(parsedEmails);
+        previousEmailCountRef.current = parsedEmails.length;
       } catch (e) {
         console.error('Failed to parse saved emails:', e);
       }
