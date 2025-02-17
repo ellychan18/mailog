@@ -5,17 +5,17 @@ export default function Privacy() {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy - SnapMails</title>
-        <meta name="description" content="Read SnapMails' privacy policy to understand how we protect your data and maintain your privacy while using our temporary email service." />
+        <title>Privacy Policy - EllMails</title>
+        <meta name="description" content="Read EllMails' privacy policy to understand how we protect your data and maintain your privacy while using our temporary email service." />
         <meta name="keywords" content="privacy policy, data protection, email privacy, temporary email security" />
-        <link rel="canonical" href="https://snapmails.xyz/privacy" />
+        <link rel="canonical" href="https://ell-mail.netlify.app/privacy" />
         
-        <meta property="og:title" content="SnapMails Privacy Policy" />
+        <meta property="og:title" content="EllMails Privacy Policy" />
         <meta property="og:description" content="Learn how we protect your privacy and handle your data." />
-        <meta property="og:url" content="https://snapmails.xyz/privacy" />
+        <meta property="og:url" content="https://ell-mail.netlify.app/privacy" />
         <meta property="og:type" content="website" />
         
-        <meta name="twitter:title" content="SnapMails Privacy Policy" />
+        <meta name="twitter:title" content="EllMails Privacy Policy" />
         <meta name="twitter:description" content="Our commitment to protecting your privacy." />
       </Helmet>
 
@@ -24,7 +24,7 @@ export default function Privacy() {
         
         <div className="prose prose-lg">
           <p className="lead text-xl text-gray-600 mb-8">
-            At SnapMails, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information.
+            At EllMails, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information.
           </p>
 
           <section aria-labelledby="info-collect">
@@ -90,15 +90,15 @@ export default function Privacy() {
             <h2 id="contact">Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at{' '}
-              <a href="mailto:erolledph@gmail.com" aria-label="Contact privacy team via email">
-                erolledph@gmail.com
+              <a href="mailto:mail.ibad05@gmail.com" aria-label="Contact privacy team via email">
+                mail.ibad05@gmail.com
               </a>
               .
             </p>
           </section>
 
           <p className="text-sm text-gray-600 mt-8">
-            Last updated: March 2025
+            Last updated: January 2025
           </p>
         </div>
       </main>
