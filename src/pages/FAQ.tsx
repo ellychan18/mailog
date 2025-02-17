@@ -70,13 +70,13 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group bg-white rounded-lg shadow-sm border border-gray-200 open:shadow-md transition-all duration-300"
+              className="group bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 open:shadow-md transition-all duration-300"
             >
               <summary className="flex items-center justify-between cursor-pointer p-6" role="button" aria-expanded="false">
-                <h3 className="text-lg font-medium pr-4">{faq.question}</h3>
-                <ChevronDown className="w-5 h-5 text-gray-500 transition-transform group-open:rotate-180" aria-hidden="true" />
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white pr-4">{faq.question}</h3>
+                <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform group-open:rotate-180" aria-hidden="true" />
               </summary>
-              <div className="px-6 pb-6 text-gray-600">
+              <div className="px-6 pb-6 text-gray-700 dark:text-gray-200">
                 {faq.answer}
               </div>
             </details>
@@ -84,7 +84,7 @@ export default function FAQ() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-4">Still have questions?</p>
+          <p className="text-gray-700 dark:text-gray-200 mb-4">Still have questions?</p>
           <a
             href="mailto:support@snapmails.xyz"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"

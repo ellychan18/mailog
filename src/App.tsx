@@ -544,7 +544,7 @@ const App: React.FC = () => {
                 <ul className="space-y-3 text-sm">
                   <li>
                     <a
-                      href="mailto:support@snapmails.xyz"
+                      href="mailto:erolledph@gmail.com"
                       className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
                     >
                       Contact Us

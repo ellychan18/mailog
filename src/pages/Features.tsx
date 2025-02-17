@@ -5,42 +5,42 @@ import { Shield, Clock, Lock, RefreshCw, Mail, Zap, Edit2, Globe } from 'lucide-
 export default function Features() {
   const features = [
     {
-      icon: <Edit2 className="w-6 h-6 text-blue-500" />,
+      icon: <Edit2 className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Customizable Email",
       description: "Unlike other services, we let you customize your temporary email address anytime you want."
     },
     {
-      icon: <Shield className="w-6 h-6 text-blue-500" />,
+      icon: <Shield className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Privacy Protection",
       description: "Keep your real email address private and protect yourself from spam and unwanted subscriptions."
     },
     {
-      icon: <Clock className="w-6 h-6 text-blue-500" />,
+      icon: <Clock className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Instant Access",
       description: "Get a temporary email address immediately with no registration or personal information required."
     },
     {
-      icon: <Lock className="w-6 h-6 text-blue-500" />,
+      icon: <Lock className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Secure Service",
       description: "Our service is built with security in mind, ensuring your temporary emails are protected."
     },
     {
-      icon: <RefreshCw className="w-6 h-6 text-blue-500" />,
+      icon: <RefreshCw className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Auto Refresh",
       description: "Emails are automatically checked and displayed in real-time as they arrive."
     },
     {
-      icon: <Mail className="w-6 h-6 text-blue-500" />,
+      icon: <Mail className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Clean Interface",
       description: "User-friendly design makes it easy to read and manage your temporary emails."
     },
     {
-      icon: <Zap className="w-6 h-6 text-blue-500" />,
+      icon: <Zap className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Fast & Reliable",
       description: "High-performance infrastructure ensures your temporary email service is always available."
     },
     {
-      icon: <Globe className="w-6 h-6 text-blue-500" />,
+      icon: <Globe className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
       title: "Multiple Domains",
       description: "Choose from different email domains to suit your needs and preferences."
     }
@@ -77,14 +77,14 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-gradient-to-br hover:from-blue-50 hover:to-white"
+              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-1"
               role="listitem"
             >
-              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4" aria-hidden="true">
+              <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/50 rounded-lg flex items-center justify-center mb-4" aria-hidden="true">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-sm">{feature.description}</p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </div>
           ))}
         </div>
