@@ -20,7 +20,6 @@ import About from './pages/About';
 import Features from './pages/Features';
 import NotFound from './pages/NotFound';
 import FAQ from './pages/FAQ';
-import Blog from './pages/Blog/Blog';
 import PWAPrompt from './components/PWAPrompt';
 
 const ComparisonSection = () => (
@@ -179,9 +178,6 @@ const Home = () => {
                 inbox clean and secure with instant disposable email addresses
                 for temporary use.
               </p>
-              {/* <div className="inline-block bg-blue-50 dark:bg-blue-900/50 rounded-full px-6 py-2 text-blue-700 dark:text-blue-200 font-medium border border-blue-100 dark:border-blue-800">
-                Customize your email address in your first session, 60mins Cooldown 
-              </div> */}
             </div>
             <div className="flex flex-wrap gap-6 justify-center mt-12 mb-12">
               <div className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
@@ -458,7 +454,6 @@ const App: React.FC = () => {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/blog" element={<Blog />} />
             <Route path="/404" element={<NotFound />} />
             <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
@@ -499,14 +494,6 @@ const App: React.FC = () => {
                       className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
                     >
                       About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/blog"
-                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
-                    >
-                      Blog
                     </Link>
                   </li>
                   <li>
