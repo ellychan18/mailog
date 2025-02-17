@@ -74,7 +74,7 @@ Disallow: /.env.*
 Crawl-delay: 10
 
 # Sitemap location
-Sitemap: https://snapmails.xyz/sitemap.xml
+Sitemap: https://ell-mail.netlify.app/sitemap.xml
 
 # Additional rules for specific bots
 User-agent: GPTBot
