@@ -6,18 +6,18 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About SnapMails - Our Mission and Values</title>
+        <title>About EllMails - Our Mission and Values</title>
         <meta name="description" content="Learn about SnapMails' commitment to email privacy and security. Discover how we're making temporary email services more accessible and customizable." />
-        <meta name="keywords" content="about snapmails, email privacy, temporary email service, disposable email company" />
-        <link rel="canonical" href="https://snapmails.xyz/about" />
+        <meta name="keywords" content="about ellmails, email privacy, temporary email service, disposable email company" />
+        <link rel="canonical" href="https://ell-mail.netlify.app/about" />
         
-        <meta property="og:title" content="About SnapMails - Temporary Email Service" />
-        <meta property="og:description" content="Learn about SnapMails' commitment to email privacy and security." />
-        <meta property="og:url" content="https://snapmails.xyz/about" />
+        <meta property="og:title" content="About EllMails - Temporary Email Service" />
+        <meta property="og:description" content="Learn about EllMails' commitment to email privacy and security." />
+        <meta property="og:url" content="https://ell-mail.netlify.app/about" />
         <meta property="og:type" content="website" />
         
-        <meta name="twitter:title" content="About SnapMails - Our Story" />
-        <meta name="twitter:description" content="Discover the team and mission behind SnapMails." />
+        <meta name="twitter:title" content="About EllMails - Our Story" />
+        <meta name="twitter:description" content="Discover the team and mission behind EllMails." />
       </Helmet>
 
       <main className="max-w-4xl mx-auto px-4 py-16" role="main">
@@ -25,7 +25,7 @@ export default function About() {
         
         <div className="prose prose-lg mx-auto">
           <p className="text-lg text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-            SnapMails is a leading provider of disposable email services, helping users protect their privacy and maintain a clean inbox since 2025.
+            EllMails is a leading provider of disposable email services, helping users protect their privacy and maintain a clean inbox since 2025.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
