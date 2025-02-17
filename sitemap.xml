@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://snapmails.xyz/</loc>
+    <loc>https://ell-mail.netlify.app/</loc>
     <lastmod>2025-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://snapmails.xyz/features</loc>
+    <loc>https://ell-mail.netlify.app/features</loc>
     <lastmod>2025-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://snapmails.xyz/about</loc>
+    <loc>https://ell-mail.netlify.app/about</loc>
     <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://snapmails.xyz/privacy</loc>
+    <loc>https://ell-mail.netlify.app/privacy</loc>
     <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://snapmails.xyz/terms</loc>
+    <loc>https://ell-mail.netlify.app/terms</loc>
     <lastmod>2025-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://snapmails.xyz/faq</loc>
+    <loc>https://ell-mail.netlify.app/faq</loc>
     <lastmod>2025-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
