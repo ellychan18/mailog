@@ -139,7 +139,6 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom'],
           icons: ['lucide-react'],
           utils: ['./src/lib/guerrilla.ts', './src/lib/words.ts'],
-          // Separate route chunks
           features: ['./src/pages/Features.tsx'],
           about: ['./src/pages/About.tsx'],
           privacy: ['./src/pages/Privacy.tsx'],
@@ -159,15 +158,19 @@ export default defineConfig({
     modulePreload: {
       polyfill: true
     },
-    // Enable build cache
     cache: true,
-    // Optimize dependencies
     optimizeDeps: {
       include: ['react', 'react-dom', 'react-router-dom', 'lucide-react', 'react-helmet-async', 'react-hot-toast'],
       exclude: []
     }
   },
   server: {
+    hmr: {
+      protocol: 'ws',
+      host: 'localhost',
+      clientPort: 5173,
+      overlay: false
+    },
     headers: {
       'Cache-Control': 'public, max-age=31536000',
       'X-Content-Type-Options': 'nosniff',
@@ -178,9 +181,9 @@ export default defineConfig({
       'Content-Security-Policy': "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self' data:; connect-src 'self' https:;"
     },
     compression: true,
-    // Enable HMR with overlay disabled for better performance
-    hmr: {
-      overlay: false
+    watch: {
+      usePolling: true,
+      interval: 1000
     }
   },
   preview: {
@@ -195,7 +198,6 @@ export default defineConfig({
     },
     compression: true
   },
-  // Add performance optimizations
   esbuild: {
     legalComments: 'none',
     treeShaking: true,
