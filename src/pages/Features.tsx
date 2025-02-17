@@ -49,7 +49,7 @@ export default function Features() {
   return (
     <>
       <Helmet>
-        <title>Features - ellMails Temporary Email Service</title>
+        <title>Features - EllMails Temporary Email Service</title>
         <meta name="description" content="Discover SnapMails' powerful features: customizable email addresses, instant access, real-time notifications, and enhanced privacy protection." />
         <meta name="keywords" content="email features, temporary email features, disposable email service, email customization, email privacy" />
         <link rel="canonical" href="https://ell-mail.netlify.app/features" />
