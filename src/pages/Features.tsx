@@ -49,17 +49,17 @@ export default function Features() {
   return (
     <>
       <Helmet>
-        <title>Features - SnapMails Temporary Email Service</title>
+        <title>Features - ellMails Temporary Email Service</title>
         <meta name="description" content="Discover SnapMails' powerful features: customizable email addresses, instant access, real-time notifications, and enhanced privacy protection." />
         <meta name="keywords" content="email features, temporary email features, disposable email service, email customization, email privacy" />
-        <link rel="canonical" href="https://snapmails.xyz/features" />
+        <link rel="canonical" href="https://ell-mail.netlify.app/features" />
         
-        <meta property="og:title" content="SnapMails Features - Customizable Temporary Email Service" />
-        <meta property="og:description" content="Discover SnapMails' powerful features: customizable email addresses, instant access, real-time notifications, and enhanced privacy protection." />
-        <meta property="og:url" content="https://snapmails.xyz/features" />
+        <meta property="og:title" content="EllMails Features - Customizable Temporary Email Service" />
+        <meta property="og:description" content="Discoverap EllMails' powerful features: customizable email addresses, instant access, real-time notifications, and enhanced privacy protection." />
+        <meta property="og:url" content="https://ell-mail.netlify.app/features" />
         <meta property="og:type" content="website" />
         
-        <meta name="twitter:title" content="SnapMails Features - Temporary Email Service" />
+        <meta name="twitter:title" content="EllMails Features - Temporary Email Service" />
         <meta name="twitter:description" content="Discover our powerful features for temporary email management." />
       </Helmet>
 
@@ -69,7 +69,7 @@ export default function Features() {
             Powerful Features
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Discover what makes SnapMails the most versatile temporary email service available.
+            Discover what makes EllMails the most versatile temporary email service available.
           </p>
         </div>
 
@@ -92,12 +92,12 @@ export default function Features() {
         <div className="mt-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-center">
           <h2 className="text-2xl font-bold mb-4 text-white">Ready to get started?</h2>
           <p className="text-blue-100 mb-8">
-            Try SnapMails now and experience the best temporary email service available.
+            Try EllMails now and experience the best temporary email service available.
           </p>
           <a
             href="/"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 transition-colors"
-            aria-label="Get started with SnapMails"
+            aria-label="Get started with EllMails"
           >
             Get Started
           </a>
