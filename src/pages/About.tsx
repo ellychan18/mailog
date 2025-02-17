@@ -7,7 +7,7 @@ export default function About() {
     <>
       <Helmet>
         <title>About EllMails - Our Mission and Values</title>
-        <meta name="description" content="Learn about SnapMails' commitment to email privacy and security. Discover how we're making temporary email services more accessible and customizable." />
+        <meta name="description" content="Learn about EllMails' commitment to email privacy and security. Discover how we're making temporary email services more accessible and customizable." />
         <meta name="keywords" content="about ellmails, email privacy, temporary email service, disposable email company" />
         <link rel="canonical" href="https://ell-mail.netlify.app/about" />
         
@@ -21,7 +21,7 @@ export default function About() {
       </Helmet>
 
       <main className="max-w-4xl mx-auto px-4 py-16" role="main">
-        <h1 className="text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">About SnapMails</h1>
+        <h1 className="text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">About EllMails</h1>
         
         <div className="prose prose-lg mx-auto">
           <p className="text-lg text-gray-700 dark:text-gray-200 max-w-2xl mx-auto mb-8 leading-relaxed">
