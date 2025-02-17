@@ -5,17 +5,17 @@ export default function Terms() {
   return (
     <>
       <Helmet>
-        <title>Terms of Service - SnapMails</title>
-        <meta name="description" content="Review SnapMails' terms of service to understand the rules and guidelines for using our temporary email service." />
+        <title>Terms of Service - EllMails</title>
+        <meta name="description" content="Review EllMails' terms of service to understand the rules and guidelines for using our temporary email service." />
         <meta name="keywords" content="terms of service, user agreement, service terms, email service terms" />
-        <link rel="canonical" href="https://snapmails.xyz/terms" />
+        <link rel="canonical" href="https://ell-mail.netlify.app/terms" />
         
-        <meta property="og:title" content="SnapMails Terms of Service" />
+        <meta property="og:title" content="EllMails Terms of Service" />
         <meta property="og:description" content="Review our terms of service and usage guidelines." />
-        <meta property="og:url" content="https://snapmails.xyz/terms" />
+        <meta property="og:url" content="https://ell-mail.netlify.app/terms" />
         <meta property="og:type" content="website" />
         
-        <meta name="twitter:title" content="SnapMails Terms of Service" />
+        <meta name="twitter:title" content="EllMails Terms of Service" />
         <meta name="twitter:description" content="Our service terms and guidelines." />
       </Helmet>
 
@@ -30,7 +30,7 @@ export default function Terms() {
           <section aria-labelledby="service-description">
             <h2 id="service-description">1. Service Description</h2>
             <p>
-              SnapMails provides temporary, disposable email addresses for receiving emails. The service is provided "as is" without any warranties.
+              EllMails provides temporary, disposable email addresses for receiving emails. The service is provided "as is" without any warranties.
             </p>
           </section>
 
@@ -86,15 +86,15 @@ export default function Terms() {
             <h2 id="contact">7. Contact Information</h2>
             <p>
               For questions about these terms, please contact us at{' '}
-              <a href="mailto:erolledph@gmail.com" aria-label="Contact legal team via email">
-             erolledph@gmail.com
+              <a href="mailto:mail.ibad05@gmail.com" aria-label="Contact legal team via email">
+             mail.ibad05@gmail.com
               </a>
               .
             </p>
           </section>
 
           <p className="text-sm text-gray-600 mt-8">
-            Last updated: March 2025
+            Last updated: January 2025
           </p>
         </div>
       </main>
