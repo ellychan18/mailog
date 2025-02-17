@@ -5,8 +5,8 @@ import { ChevronDown } from 'lucide-react';
 export default function FAQ() {
   const faqs = [
     {
-      question: "What is SnapMails?",
-      answer: "SnapMails is a secure disposable email service that provides temporary email addresses for users who want to protect their primary email from spam and unwanted subscriptions."
+      question: "What is EllMails?",
+      answer: "EllMails is a secure disposable email service that provides temporary email addresses for users who want to protect their primary email from spam and unwanted subscriptions."
     },
     {
       question: "How long do temporary email addresses last?",
@@ -49,17 +49,17 @@ export default function FAQ() {
   return (
     <>
       <Helmet>
-        <title>Frequently Asked Questions - SnapMails</title>
-        <meta name="description" content="Find answers to common questions about SnapMails' temporary email service, features, and usage guidelines." />
+        <title>Frequently Asked Questions - EllMails</title>
+        <meta name="description" content="Find answers to common questions about EllMails' temporary email service, features, and usage guidelines." />
         <meta name="keywords" content="FAQ, help, support, temporary email questions, email service help" />
-        <link rel="canonical" href="https://snapmails.xyz/faq" />
+        <link rel="canonical" href="https://ell-mail.netlify.app/faq" />
         
-        <meta property="og:title" content="SnapMails FAQ - Get Help" />
+        <meta property="og:title" content="EllMails FAQ - Get Help" />
         <meta property="og:description" content="Find answers to common questions about our service." />
-        <meta property="og:url" content="https://snapmails.xyz/faq" />
+        <meta property="og:url" content="https://ell-mail.netlify.app/faq" />
         <meta property="og:type" content="website" />
         
-        <meta name="twitter:title" content="SnapMails FAQ" />
+        <meta name="twitter:title" content="EllMails FAQ" />
         <meta name="twitter:description" content="Get answers to common questions about our service." />
       </Helmet>
 
@@ -86,7 +86,7 @@ export default function FAQ() {
         <div className="mt-12 text-center">
           <p className="text-gray-700 dark:text-gray-200 mb-4">Still have questions?</p>
           <a
-            href="mailto:support@snapmails.xyz"
+            href="mailto:mail.ibad05@gmail.com"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
             aria-label="Contact Support via Email"
           >
