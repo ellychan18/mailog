@@ -7,8 +7,8 @@ export default function NotFound() {
   return (
     <>
       <Helmet>
-        <title>404 - Page Not Found | SnapMails</title>
-        <meta name="description" content="The page you're looking for cannot be found. Return to SnapMails' homepage for temporary email services." />
+        <title>404 - Page Not Found | EllMails</title>
+        <meta name="description" content="The page you're looking for cannot be found. Return to EllMails' homepage for temporary email services." />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
 
