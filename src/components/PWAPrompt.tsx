@@ -76,7 +76,7 @@ const PWAPrompt = () => {
         </div>
         <div className="ml-3">
           <h3 id="pwa-title" className="text-sm font-semibold text-gray-900 dark:text-white">
-            Install SnapMails
+            Install EllMails
           </h3>
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Add our app to your home screen for quick access to temporary emails
