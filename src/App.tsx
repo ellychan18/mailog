@@ -355,7 +355,7 @@ const App: React.FC = () => {
               <Link to="/" className="flex items-center">
                 <Mail className="w-8 h-8 text-blue-500 dark:text-blue-300" />
                 <span className="ml-2 text-xl font-semibold text-gray-900 dark:text-white">
-                  SnapMails
+                  EllMails
                 </span>
               </Link>
 
