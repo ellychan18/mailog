@@ -5,9 +5,9 @@ export default function Blog() {
   return (
     <>
       <Helmet>
-        <title>Blog - SnapMails</title>
+        <title>Blog - EllMails</title>
         <meta name="robots" content="noindex, follow" />
-        <link rel="alternate" type="application/rss+xml" title="SnapMails Blog RSS Feed" href="/blog/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="EllMails Blog RSS Feed" href="/blog/rss.xml" />
       </Helmet>
       <div className="max-w-4xl mx-auto px-4 py-16">
         <h1 className="text-3xl font-bold mb-4">Blog</h1>
