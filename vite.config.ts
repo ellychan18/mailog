@@ -27,7 +27,7 @@ const generateStaticFiles = () => {
 
 // Generate sitemap.xml with current date
 const generateSitemap = () => {
-  const baseUrl = 'https://snapmails.xyz';
+  const baseUrl = 'https://ell-mail.netlify.app';
   const currentDate = new Date().toISOString().split('T')[0];
   
   const pages = [
