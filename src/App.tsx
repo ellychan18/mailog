@@ -26,7 +26,7 @@ const ComparisonSection = () => (
   <section className="py-16 dark:bg-gray-900">
     <div className="max-w-7xl mx-auto px-4">
       <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 ">
-        Why Choose SnapMails?
+        Why Choose EllMails?
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-md transition-all hover:-translate-y-1">
@@ -52,7 +52,7 @@ const ComparisonSection = () => (
         </div>
         <div className="bg-blue-600 text-white p-6 rounded-lg shadow-lg transform md:-translate-y-4 hover:shadow-md transition-all hover:-translate-y-1">
           <div className="flex items-center justify-between mb-4 ">
-            <h3 className="text-xl font-bold">SnapMails</h3>
+            <h3 className="text-xl font-bold">EllMails</h3>
             <Award className="w-6 h-6" />
           </div>
           <ul className="space-y-3">
@@ -468,7 +468,7 @@ const App: React.FC = () => {
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 text-blue-500 dark:text-blue-300" />
                   <span className="ml-2 text-lg font-semibold text-gray-900 dark:text-white">
-                    SnapMails
+                    EllMails
                   </span>
                 </div>
                 <p className="mt-4 text-sm text-gray-700 dark:text-gray-200">
@@ -527,14 +527,6 @@ const App: React.FC = () => {
                       Terms of Service
                     </Link>
                   </li>
-                  <li>
-                    <a
-                      href="https://www.guerrillamail.com"
-                      className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
-                    >
-                      API
-                    </a>
-                  </li>
                 </ul>
               </div>
               <div>
@@ -544,7 +536,7 @@ const App: React.FC = () => {
                 <ul className="space-y-3 text-sm">
                   <li>
                     <a
-                      href="mailto:erolledph@gmail.com"
+                      href="mailto:mail.ibad05@gmail.com"
                       className="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white"
                     >
                       Contact Us
@@ -554,7 +546,7 @@ const App: React.FC = () => {
               </div>
             </div>
             <div className="border-t dark:border-gray-800 mt-8 pt-8 text-center text-sm text-gray-700 dark:text-gray-200">
-              <p>© 2025 SnapMails. All rights reserved.</p>
+              <p>© 2025 EllMails. All rights reserved.</p>
             </div>
           </div>
         </footer>
