@@ -1,6 +1,6 @@
 {
-  "name": "SnapMails",
-  "short_name": "SnapMails",
+  "name": "EllMails",
+  "short_name": "EllMails",
   "description": "Secure & Customizable Disposable Email Service",
   "start_url": "/",
   "display": "standalone",
