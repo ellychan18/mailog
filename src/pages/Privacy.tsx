@@ -90,7 +90,7 @@ export default function Privacy() {
             <h2 id="contact">Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at{' '}
-              <a href="mailto:privacy@snapmails.xyz" aria-label="Contact privacy team via email">
+              <a href="mailto:erolledph@gmail.com" aria-label="Contact privacy team via email">
                 erolledph@gmail.com
               </a>
               .

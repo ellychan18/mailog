@@ -54,7 +54,7 @@ export class GuerrillaClient {
           this.sidToken = sidToken;
         }
       } catch (e) {
-        console.warn('Failed to parse saved session:', e);
+        // Silently handle parse error
       }
     } else {
       const sidToken = document.cookie.split('; ').find(row => row.startsWith('PHPSESSID='))?.split('=')[1];
@@ -127,7 +127,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to get email address:', error);
       throw new Error('Failed to generate email address. Please try again.');
     }
   }
@@ -140,7 +139,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to set email user:', error);
       throw new Error('Failed to set email address. Please try again.');
     }
   }
@@ -158,7 +156,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to check email:', error);
       throw new Error('Failed to check emails. Please try again.');
     }
   }
@@ -176,7 +173,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to get email list:', error);
       throw new Error('Failed to retrieve emails. Please try again.');
     }
   }
@@ -187,7 +183,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to fetch email:', error);
       throw new Error('Failed to fetch email content. Please try again.');
     }
   }
@@ -198,7 +193,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to forget email:', error);
       throw new Error('Failed to forget email address. Please try again.');
     }
   }
@@ -213,7 +207,6 @@ export class GuerrillaClient {
       this.retryCount = 0; // Reset retry count on success
       return response;
     } catch (error) {
-      console.error('Failed to delete emails:', error);
       throw new Error('Failed to delete emails. Please try again.');
     }
   }

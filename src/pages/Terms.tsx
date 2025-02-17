@@ -86,7 +86,7 @@ export default function Terms() {
             <h2 id="contact">7. Contact Information</h2>
             <p>
               For questions about these terms, please contact us at{' '}
-              <a href="mailto:legal@snapmails.xyz" aria-label="Contact legal team via email">
+              <a href="mailto:erolledph@gmail.com" aria-label="Contact legal team via email">
              erolledph@gmail.com
               </a>
               .
